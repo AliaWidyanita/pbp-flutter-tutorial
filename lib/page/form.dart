@@ -1,5 +1,7 @@
-import 'package:tugaspbp/main.dart';
 import 'package:flutter/material.dart';
+import 'package:tugaspbp/main.dart';
+import 'package:tugaspbp/page/to_do_page.dart';
+import 'package:tugaspbp/model/to_do.dart';
 
 class MyFormPage extends StatefulWidget {
     const MyFormPage({super.key});
@@ -27,27 +29,41 @@ class _MyFormPageState extends State<MyFormPage> {
                 title: Text('Form'),
             ),
             drawer: Drawer(
-              child: Column(
-                children: [
-                  // Menambahkan clickable menu
-                  ListTile(
-                    title: const Text('Counter'),
-                    onTap: () {
-                      // Route menu ke halaman utama
-                      Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => const MyHomePage()));
-                    },
-                  ),
-                  ListTile(
-                    title: const Text('Form'),
-                    onTap: () {
-                      // Route menu ke halaman form
-                      Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => const MyFormPage()));
-                    },
-                  ),
-                ],
-              ),
+                child: Column(
+                    children: [
+                        // Adding clickable menu
+                        ListTile(
+                            title: const Text('Counter'),
+                            onTap: () {
+                                // Routing the menu to the main page
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => const MyHomePage()),
+                                );
+                            },
+                        ),
+                        ListTile(
+                            title: const Text('Form'),
+                            onTap: () {
+                                // Routing the menu to the form page
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => const MyFormPage()),
+                                );
+                            },
+                        ),
+                        ListTile(
+                            title: const Text('To Do'),
+                            onTap: () {
+                                // Route the menu to the to do page
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => const ToDoPage()),
+                                );
+                            },
+                        ),
+                    ],
+                ),
             ),
             body: Form(
                 key: _formKey,
